@@ -2,34 +2,47 @@ import React, {Component} from 'react';
 import Producto from './Producto';
 
 class Productos extends Component {
-    render() {
+    constructor(){
+        super()
+        this.state = {
+            productos: [
+                {
+                    id:1,
+                    title:"Moto G",
+                    price:1000,
+                    category:"Celulares"
+                },
+                {
+                    id:2,
+                    title:"Moto K",
+                    price:1500,
+                    category:"Celulares"
+                },
+                {
+                    id:3,
+                    title:"iPhone",
+                    price:2000,
+                    category:"Celulares"
+                }
+            ]
+        }
+    }
 
-        const productos = [
-            {
-                id:1,
-                title:"Moto G",
-                price:1000,
-                category:"Celulares"
-            },
-            {
-                id:2,
-                title:"Moto G",
-                price:1500,
-                category:"Celulares"
-            },
-            {
-                id:1,
-                title:"Moto G",
+    filtrar = () => {
+        this.setState({
+            productos: [{
                 price:2000,
-                category:"Celulares"
-            }
-        ]
+            }]
+        })
+    }
 
-        console.log(productos[1].title)
 
+    render() {
         return(
             <div>
-                {productos.map(producto => <Producto title={producto.title} price={producto.price} category={producto.category}/>)}
+                <h1>{this.state.titulo}</h1>
+                {this.state.productos.map(producto => <Producto title={producto.title} price={producto.price} category={producto.category}/>)}
+                <button onClick={this.filtrar}>Filtrar</button>
             </div>
         )
     }
