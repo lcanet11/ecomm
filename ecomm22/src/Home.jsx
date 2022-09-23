@@ -1,11 +1,17 @@
 import React, {Component} from 'react'; 
+import Productos from './Productos';
+
 
 class Home extends Component{
+    constructor () {
+        super()
+    }
+
     render(){
         return(
-            <div>
-                Home
-            </div>
+          <div>
+            <Productos />
+          </div>
         )
     }
 }
