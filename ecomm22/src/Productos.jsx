@@ -1,11 +1,16 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import Producto from './Producto';
 
-class Productos extends Component {
-    constructor(){
-        super()
-        this.state = {
-            productos: [
+
+function Productos(){
+    const [titulo, setTitulo] = useState()
+    const [productos, setProductos] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        //buscar en base de datos 
+        setTimeout(() =>{
+            setProductos([
                 {
                     id:1,
                     title:"Moto G",
@@ -24,25 +29,32 @@ class Productos extends Component {
                     price:2000,
                     category:"Celulares"
                 }
-            ]
-        }
+            ])
+            setIsLoading(false)
+        }, 2000)
+    }, []
+    )
+
+    const filtrar = () => {
+        setProductos([{
+            id:3,
+            title:"iPhone",
+            price:2000,
+            category:"Celulares"
+        }])
     }
 
-    filtrar = () => {
-        this.setState({
-            productos: [{
-                price:2000,
-            }]
-        })
-    }
-
-
-    render() {
+    if(isLoading){
         return(
             <div>
-                <h1>{this.state.titulo}</h1>
-                {this.state.productos.map(producto => <Producto title={producto.title} price={producto.price} category={producto.category}/>)}
-                <button onClick={this.filtrar}>Filtrar</button>
+                Cargando....
+            </div>
+        )} else {
+        return(
+            <div>
+                <h1>{titulo}</h1>
+                {productos.map(producto => <Producto title={producto.title} price={producto.price} category={producto.category}/>)}
+                <button onClick={filtrar}>Filtrar</button>
             </div>
         )
     }
