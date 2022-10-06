@@ -1,10 +1,12 @@
 import './App.css';
-import Home from './Home'
+import Home from './Components/Home'
+import Contador from './Components/Contador'
 
 function App() {
   return (
    <div className="App">
-    Order Online
+    Order Online<br />
+    <Contador />
     <Home />
    </div>
   );

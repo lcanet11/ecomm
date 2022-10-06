@@ -8,30 +8,31 @@ function Productos(){
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        const result = async ()=>{
+            try {
+                const responseData = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod").then((res) =>res.json());
+                console.log(responseData.results);
+                setProductos(responseData.results)
+                setIsLoading(false)
+            } catch(e){
+                console.log(e);
+            }
+        
+        }
+
+        result()
+
+
+    /*
         //buscar en base de datos 
-        setTimeout(() =>{
-            setProductos([
-                {
-                    id:1,
-                    title:"Moto G",
-                    price:1000,
-                    category:"Celulares"
-                },
-                {
-                    id:2,
-                    title:"Moto K",
-                    price:1500,
-                    category:"Celulares"
-                },
-                {
-                    id:3,
-                    title:"iPhone",
-                    price:2000,
-                    category:"Celulares"
-                }
-            ])
-            setIsLoading(false)
-        }, 2000)
+      const response = fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod")
+      .then((res)=> res.json())
+      .then((responseData) => {
+        console.log(responseData)
+      })
+      .catch(e=>{
+        console.log(e)
+      })*/
     }, []
     )
 
