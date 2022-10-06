@@ -1,16 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import Producto from './Producto';
+import { getAll } from "../Services/productosServices"
 
 
 function Productos(){
-    const [titulo, setTitulo] = useState()
+    //const [titulo, setTitulo] = useState()
+    const titulo = "Listado de Productos"
     const [productos, setProductos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const result = async ()=>{
             try {
-                const responseData = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod").then((res) =>res.json());
+                const responseData = await getAll()
                 console.log(responseData.results);
                 setProductos(responseData.results)
                 setIsLoading(false)
@@ -21,8 +23,6 @@ function Productos(){
         }
 
         result()
-
-
     /*
         //buscar en base de datos 
       const response = fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod")
