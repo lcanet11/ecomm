@@ -13,8 +13,8 @@ function Productos(){
         const result = async ()=>{
             try {
                 const responseData = await getAll()
-                console.log(responseData.results);
-                setProductos(responseData.results)
+                console.log(responseData.data);
+                setProductos(responseData.data.results)
                 setIsLoading(false)
             } catch(e){
                 console.log(e);
