@@ -4,7 +4,7 @@ import Productos from './Productos'
 
 function Producto({
     title, 
-    category, 
+    site_id,
     price
 }){
     //console.log("props", props)
@@ -13,7 +13,7 @@ function Producto({
     return(
         <div>
             <h2>{title}</h2>
-            <p>{category}</p>
+            <p>{site_id}</p>
             <p>{price}</p>
             <button>Ver Detalle</button>
         </div>

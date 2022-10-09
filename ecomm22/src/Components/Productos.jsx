@@ -37,11 +37,9 @@ function Productos(){
     )
 
     const filtrar = () => {
+        
         setProductos([{
-            id:3,
-            title:"iPhone",
-            price:2000,
-            category:"Celulares"
+            title: '100 Semillas Orgánicas Nepeta Cataria Hierba Gatera Catnip'
         }])
     }
 
@@ -54,7 +52,7 @@ function Productos(){
         return(
             <div>
                 <h1>{titulo}</h1>
-                {productos.map(producto => <Producto title={producto.title} price={producto.price} category={producto.category}/>)}
+                {productos.map(producto => <Producto title={producto.title} price={producto.price} site_id={producto.site_id}/>)}
                 <button onClick={filtrar}>Filtrar</button>
             </div>
         )
