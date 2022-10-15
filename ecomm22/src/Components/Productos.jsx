@@ -52,7 +52,7 @@ function Productos(){
         return(
             <div>
                 <h1>{titulo}</h1>
-                {productos.map(producto => <Producto title={producto.title} price={producto.price} site_id={producto.site_id}/>)}
+                {productos.map(producto => <Producto id={producto.id} title={producto.title} price={producto.price} category={producto.category}/>)}
                 <button onClick={filtrar}>Filtrar</button>
             </div>
         )

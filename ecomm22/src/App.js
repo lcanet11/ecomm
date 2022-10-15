@@ -1,13 +1,17 @@
 import './App.css';
-import Home from './Components/Home'
-import Contador from './Components/Contador'
+
+import NavBar from './Components/NavBar';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Public from './Routes/Public';
+
 
 function App() {
   return (
    <div className="App">
-    Order Online<br />
-    <Contador />
-    <Home />
+    <Router>
+      <NavBar />
+      <Public />
+    </Router>
    </div>
   );
 }

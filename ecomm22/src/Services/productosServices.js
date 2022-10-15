@@ -5,7 +5,7 @@ export function getAll(){
    return instance.get("sites/MLA/search?q=semilla organica")
 }
 
-export function createProductos(){
-    
+export function getByIdProductos(id){
+    return instance.get(`items/${id}`)
 }
 

@@ -1,10 +1,12 @@
 
 import React, {useEffect} from 'react'
 import Productos from './Productos'
+import { Link } from 'react-router-dom'
 
 function Producto({
+    id,
     title, 
-    site_id,
+    category,
     price
 }){
     //console.log("props", props)
@@ -13,9 +15,9 @@ function Producto({
     return(
         <div>
             <h2>{title}</h2>
-            <p>{site_id}</p>
+            <p>{category}</p>
             <p>{price}</p>
-            <button>Ver Detalle</button>
+            <button><Link to={`/producto/${id}`}>Ver Detalle</Link></button>
         </div>
     )
 }
