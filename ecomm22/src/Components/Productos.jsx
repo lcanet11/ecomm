@@ -8,11 +8,12 @@ function Productos(){
     const titulo = "Listado de Productos"
     const [productos, setProductos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [buscar, setBuscar] = useState('semillas')
 
     useEffect(() => {
         const result = async ()=>{
             try {
-                const responseData = await getAll()
+                const responseData = await getAll(buscar)
                 console.log(responseData.data);
                 setProductos(responseData.data.results)
                 setIsLoading(false)
@@ -33,7 +34,7 @@ function Productos(){
       .catch(e=>{
         console.log(e)
       })*/
-    }, []
+    }, [buscar]
     )
 
     const filtrar = () => {
@@ -52,6 +53,7 @@ function Productos(){
         return(
             <div>
                 <h1>{titulo}</h1>
+                <input type="text" value={buscar} onChange={(event)=>setBuscar(event.target.value)}></input>
                 {productos.map(producto => <Producto {...producto}/>)}
                 <button onClick={filtrar}>Filtrar</button>
             </div>
