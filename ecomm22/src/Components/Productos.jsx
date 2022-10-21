@@ -19,12 +19,12 @@ function Productos(){
             } catch(e){
                 console.log(e);
             }
-        
+
         }
 
         result()
     /*
-        //buscar en base de datos 
+        //buscar en base de datos
       const response = fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod")
       .then((res)=> res.json())
       .then((responseData) => {
@@ -37,7 +37,7 @@ function Productos(){
     )
 
     const filtrar = () => {
-        
+
         setProductos([{
             title: '100 Semillas Orgánicas Nepeta Cataria Hierba Gatera Catnip'
         }])
@@ -52,11 +52,11 @@ function Productos(){
         return(
             <div>
                 <h1>{titulo}</h1>
-                {productos.map(producto => <Producto id={producto.id} title={producto.title} price={producto.price} category={producto.category}/>)}
+                {productos.map(producto => <Producto {...producto}/>)}
                 <button onClick={filtrar}>Filtrar</button>
             </div>
         )
     }
 }
 
-export default Productos; 
+export default Productos;

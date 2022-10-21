@@ -17,7 +17,6 @@ function Detalle() {
             } catch(e){
                 console.log(e);
             }
-        
         }
         result()
     }, [id]
@@ -34,14 +33,13 @@ function Detalle() {
                 <Link to="/">Inicio</Link>
                 <h1>{producto.title}</h1>
                 <p>{producto.price}</p>
-              
-                
+                <p>{producto.category_id}</p>
+                <img src={producto.thumbnail}></img>
+                <p>Condition: {producto.condition}</p>
+          
             </div>
         )
     }
-
-
-
 
 }
 

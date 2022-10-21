@@ -7,7 +7,11 @@ function Producto({
     id,
     title, 
     category,
-    price
+    price,
+    category_id,
+    thumbnail,
+    condition,
+
 }){
     //console.log("props", props)
     //const {title, category, price} = props
@@ -16,7 +20,9 @@ function Producto({
         <div>
             <h2>{title}</h2>
             <p>{category}</p>
-            <p>{price}</p>
+            <p>${price}</p>
+            <p>{category_id}</p>
+            <img src={thumbnail}></img><br />
             <button><Link to={`/producto/${id}`}>Ver Detalle</Link></button>
         </div>
     )
