@@ -1,4 +1,4 @@
-import instance from "../config/axios"
+import instance from "../Config/axios"
 
 export function getAll(buscar){
    // return fetch("https://api.mercadolibre.com/sites/MLA/search?q=ipod").then((res) =>res.json());

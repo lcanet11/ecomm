@@ -1,6 +1,6 @@
 import {Route, Routes} from 'react-router-dom'
 import Registro from '../Pages/Registro';
-import Login from '../Pages/Login';
+import Ingresar from '../Pages/Ingresar';
 import NotFound from '../Pages/NotFound';
 import Home from '../Pages/Home';
 import Contador from '../Pages/Contador';
@@ -12,7 +12,7 @@ function Public(){
       <Route path='/' element={<Home />} />
       <Route path='/contador' element={<Contador />} />
       <Route path='/alta' element={<Registro />} />
-      <Route path='/ingresar' element={<Login />} />
+      <Route path='/ingresar' element={<Ingresar />} />
       <Route path='/producto/:id' element={<Detalle />} />
       <Route path='*' element={<NotFound />} />
     </Routes>

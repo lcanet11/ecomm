@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Producto from './Producto';
-import { getAll } from "../Services/productosServices"
+import { getAll } from "../Services/productosServices";
+import { Grid, Row, Button, Form } from 'react-bootstrap';
+import styled from 'styled-components';
+import './Productos.css'
+
 
 
 function Productos(){
@@ -9,6 +13,10 @@ function Productos(){
     const [productos, setProductos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [buscar, setBuscar] = useState('semillas')
+
+    const Container = styled.div`
+    margin-top: 130px;
+    `
 
     useEffect(() => {
         const result = async ()=>{
@@ -51,12 +59,23 @@ function Productos(){
             </div>
         )} else {
         return(
-            <div>
+         
+            <div >
+                <Row>
                 <h1>{titulo}</h1>
+                </Row>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Busqueda</Form.Label>
+                <Row>
                 <input type="text" value={buscar} onChange={(event)=>setBuscar(event.target.value)}></input>
                 {productos.map(producto => <Producto {...producto}/>)}
-                <button onClick={filtrar}>Filtrar</button>
+                </Row>
+                </Form.Group>       
+               <Row>
+               <Button onClick={filtrar}>Filtrar</Button>
+               </Row>
             </div>
+        
         )
     }
 }

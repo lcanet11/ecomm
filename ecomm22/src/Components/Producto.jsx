@@ -1,7 +1,8 @@
-
 import React, {useEffect} from 'react'
 import Productos from './Productos'
 import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+
 
 function Producto({
     id,
@@ -11,7 +12,6 @@ function Producto({
     category_id,
     thumbnail,
     condition,
-
 }){
     //console.log("props", props)
     //const {title, category, price} = props
@@ -22,8 +22,14 @@ function Producto({
             <p>{category}</p>
             <p>${price}</p>
             <p>{category_id}</p>
-            <img src={thumbnail}></img><br />
-            <button><Link to={`/producto/${id}`}>Ver Detalle</Link></button>
+            <img src={thumbnail}></img>
+            <br />
+            <br />
+
+      
+            <Button type="button" >
+                <Link to={`/producto/${id}`}>Ver Detalle</Link>
+            </Button>
         </div>
     )
 }

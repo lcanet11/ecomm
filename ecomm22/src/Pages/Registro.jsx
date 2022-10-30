@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { Button, Form } from 'react-bootstrap';
 
 function Registro(){
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,35 +25,35 @@ function Registro(){
   return(
     <>
       <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label>Nombre</label>
-            <input type='text' {...register("name", { required: true })}></input>
-            {errors.name && <span>This field is required</span>}
-            {/* <input type='text' name='name' value={form.name} onChange={handleChange}></input> */}
-          </div>
-          <div>
-            <label>Apellido</label>
-            <input type='text' {...register("lastname")}></input>
-            {errors.apellido && <span>This field is required</span>}
-            {/* <input type='text' name='lastname' value={form.lastname} onChange={handleChange}></input> */}
-          </div>
-          <div>
-            <label>Email</label>
-            <input type='text' {...register("email", { required: true })}></input>
-            {errors.email && <span>This field is required</span>}
-            {/* <input type='email' name='email' value={form.email} onChange={handleChange}></input> */}
-          </div>
-          <div>
-            <label>Password</label>
-            <input type='text' {...register("password", { required: true, minLength:6,maxLength:12 })}></input>
-            {errors.password.type==="required" && <span>This field is required</span>}
-            {errors.password.type==="minLength" && <span>Debe colocar al menos 6 caracteres</span>}
-            {errors.password.type==="maxLength" && <span>Debe colocar un maximo de 12 caracteres</span>}
-            {/* <input type='password' name='password' value={form.password} onChange={handleChange}></input> */}
-          </div>
-          <button type="submit">Registrarse</button>
-        </form>
+      <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Nombre</Form.Label>
+        <Form.Control type="text" placeholder="Nombre" {...register("name", { required: true })} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Apellido</Form.Label>
+        <Form.Control type="text" placeholder="Apellido" {...register("lastName", { required: true })} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" {...register("email", { required: true })} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" {...register("password", { required: true, minLength:6,maxLength:12 })}/>
+        <Form.Text className="text-muted">
+          No compartimos su informacion con terceros. 
+        </Form.Text>
+      
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Registrarse
+      </Button>
+    </Form>
+
+
+ 
+        
       </div>
     </>
   )

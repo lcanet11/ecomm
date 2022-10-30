@@ -1,4 +1,8 @@
 import React, {useState} from 'react'
+import { Button } from 'react-bootstrap';
+
+
+
 
 function Contador(){
     const [cantidad, setCantidad] = useState(0)
@@ -13,8 +17,13 @@ function Contador(){
 
     return(
         <>
-        <button onClick={sumar}>Incrementar</button>
-        <button onClick={restar}>Decrementar</button><br />
+        <br />
+        <div>
+        <img size='250px' src={require('../Imagenes/trolley.jpg')} />&nbsp;
+        </div>
+        <br />
+        <Button onClick={sumar}>Incrementar</Button>&nbsp;
+        <Button onClick={restar}>Decrementar</Button><br />
         <span>{cantidad}</span>
         </>
     )

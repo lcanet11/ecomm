@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Public from './Routes/Public';
+import Container from 'react-bootstrap/Container'
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
    <div className="App">
     <Router>
       <NavBar />
-      <Public />
+        <Container>
+          <Public />
+        </Container>
     </Router>
    </div>
   );
