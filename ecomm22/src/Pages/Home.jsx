@@ -4,7 +4,7 @@ import firebase from '../Config/firebase'
 
 
 function Home(){
-  console.log(firebase)
+
   return(
     <>
       <div>
