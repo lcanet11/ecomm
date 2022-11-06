@@ -5,24 +5,21 @@ import { Button } from 'react-bootstrap'
 
 
 function Producto({
-    id,
-    title, 
-    category,
+    id, 
+    name, 
+    description,
     price,
-    category_id,
-    thumbnail,
-    condition,
+    image
 }){
     //console.log("props", props)
     //const {title, category, price} = props
 
     return(
         <div>
-            <h2>{title}</h2>
-            <p>{category}</p>
-            <p>${price}</p>
-            <p>{category_id}</p>
-            <img src={thumbnail}></img>
+            <h2>{name}</h2>
+            <p>{price}</p>
+            <p>${description}</p>
+            <img src={image}></img>
             <br />
             <br />
 

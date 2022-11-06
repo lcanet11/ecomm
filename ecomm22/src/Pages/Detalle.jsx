@@ -11,8 +11,12 @@ function Detalle() {
     useEffect(() => {
         const result = async ()=>{
             try {
-                const responseData = await getByIdProductos(id)
-                setProducto(responseData.data)
+                // const responseData = await getByIdProductos(id)
+                // setProducto(responseData.data)
+                const productoData = await getByIdProductos(id)
+                if(productoData){
+                    setProducto(productoData.data())
+                }
                 setIsLoading(false)
             } catch(e){
                 console.log(e);
@@ -31,11 +35,10 @@ function Detalle() {
         return(
             <div>
                 <Link to="/">Inicio</Link>
-                <h1>{producto.title}</h1>
+                <h1>{producto.name}</h1>
                 <p>{producto.price}</p>
-                <p>{producto.category_id}</p>
-                <img src={producto.thumbnail}></img>
-                <p>Condition: {producto.condition}</p>
+                <p>{producto.description}</p>
+                <img src={producto.image}></img>
           
             </div>
         )

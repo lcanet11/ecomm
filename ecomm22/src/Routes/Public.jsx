@@ -5,6 +5,7 @@ import NotFound from '../Pages/NotFound';
 import Home from '../Pages/Home';
 import Contador from '../Pages/Contador';
 import Detalle from '../Pages/Detalle'
+import ProductosAlta from '../Pages/ProductosAlta';
 
 function Public(){
   return(
@@ -14,6 +15,7 @@ function Public(){
       <Route path='/alta' element={<Registro />} />
       <Route path='/ingresar' element={<Ingresar />} />
       <Route path='/producto/:id' element={<Detalle />} />
+      <Route path='/productos/alta' element={<ProductosAlta/>} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

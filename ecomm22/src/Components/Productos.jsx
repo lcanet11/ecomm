@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Producto from './Producto';
-import { getAll } from "../Services/productosServices";
+import { getAllProductos } from "../Services/productosServices";
 import { Grid, Row, Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import './Productos.css'
@@ -21,9 +21,12 @@ function Productos(){
     useEffect(() => {
         const result = async ()=>{
             try {
-                const responseData = await getAll(buscar)
-                console.log(responseData.data);
-                setProductos(responseData.data.results)
+                // const responseData = await getAll(buscar)
+                // console.log(responseData.data);
+                // setProductos(responseData.data.results)
+                const productos = await getAllProductos(buscar)
+                console.log(productos);
+                setProductos(productos);
                 setIsLoading(false)
             } catch(e){
                 console.log(e);
@@ -68,7 +71,7 @@ function Productos(){
                 <Form.Label>Busqueda</Form.Label>
                 <Row>
                 <input type="text" value={buscar} onChange={(event)=>setBuscar(event.target.value)}></input>
-                {productos.map(producto => <Producto {...producto}/>)}
+                {productos.map(producto => <Producto {...producto.data()} id={producto.id} />)}
                 </Row>
                 </Form.Group>       
                <Row>

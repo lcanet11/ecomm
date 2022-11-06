@@ -16,22 +16,12 @@ function NavBar(){
             <Nav.Link as={Link} to="/alta">Registro</Nav.Link>
             <Nav.Link as={Link} to="/ingresar">Ingresar</Nav.Link>
             <Nav.Link as={Link} to="/contador">Contador</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+            <NavDropdown title="Productos" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/productos/alta">Alta</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
     </Navbar>
-
-
         {/* <li><Link to="/">Inicio</Link></li>
         <li><Link to="/alta">Registro</Link></li>
         <li><Link to="/ingresar">Ingresar</Link></li>
