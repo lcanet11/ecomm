@@ -1,5 +1,5 @@
 # ecomm
-Ecommerce Site
+Ecommerce Site with the ability to upload product details, created in React JS. 
 
 
 /*
